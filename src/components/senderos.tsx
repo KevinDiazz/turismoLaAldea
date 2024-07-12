@@ -7,7 +7,8 @@ import {
     ModalBody,
     ModalCloseButton,
     useDisclosure,
-    Badge
+    Badge,
+    Flex, Spacer
 } from '@chakra-ui/react'
 import imagenesRutas from '../images'
 import cardInfo from '../cardsInfo'
@@ -22,58 +23,67 @@ const Senderos: React.FC = () => {
                     paseos tranquilos hasta desafiantes aventuras. Cada sendero te lleva a través de paisajes
                     impresionantes, con vistas panorámicas, flora y fauna autóctona, y
                     rincones mágicos que esperan ser descubiertos.<br></br>
-                    <Center>¡Ven y déjate sorprender por la magia de cada ruta!</Center></Text></Center></Box>
-            {Object.entries(cardInfo).map((value)=>{
-return(
-    <Card key={value[1].title}maxW='sm'>
-                <CardBody>
-                    <Image
-                        src={value[1].src}
-                        alt='Green double couch with wooden legs'
-                        borderRadius='lg'
-                    />
-                    <Stack mt='6' spacing='3'>
-                        <Heading size='md'>{value[1].title}</Heading>
-                        <Text>
-                        {value[1].info}
-                        </Text>
-                        <Text color='blue.600' fontSize='xl'>
-                            Dificultad:<Badge ml='1' fontSize='0.8em' colorScheme='green'>
-                            {value[1].dificultad}
-                            </Badge>
-                            <br></br>
-                            Tiempo: {value[1].tiempo}<br></br>
-                            Recorrido:{value[1].recorrido} Kilometros<br></br>
-                        </Text>
-                    </Stack>
-                </CardBody>
-                <Divider />
-                <CardFooter>
-                    <Button onClick={onOpen} variant='solid' colorScheme='blue'>
-                        Buy now
-                    </Button>
-                    <Modal onClose={onClose} size={'full'} isOpen={isOpen} isCentered>
-                        <ModalOverlay />
-                        <ModalContent>
-                            <ModalHeader>Circular Playa de El Puerto</ModalHeader>
-                            <ModalCloseButton marginTop={'10px'} />
-                            <ModalBody>
-                                <Box>hahah</Box>
-                                <Box>hahah</Box>
-                                <Image width={{ base: '100%', xl: '60%' }}
-                                    src={imagenesRutas.circularPuerto[0]}
-                                    alt='Green double couch with wooden legs'
-                                    borderRadius='lg'
-                                />
-                            </ModalBody>
-                            <ModalFooter>
-                                <Button onClick={onClose}>Close</Button>
-                            </ModalFooter>
-                        </ModalContent>
-                    </Modal>
-                </CardFooter>
-            </Card>
-            )})}
+                    <Center marginBottom="10px">¡Ven y déjate sorprender por la magia de cada ruta!</Center></Text></Center></Box>
+            <Flex gap="4">
+                {Object.entries(cardInfo).map((value) => {
+                    return (
+                        <Card key={value[1].title} maxW='sm' height="fit-content">
+                            <CardBody>
+                                <Center>
+                                    <Image
+                                        src={value[1].src}
+                                        alt='Green double couch with wooden legs'
+                                        borderRadius='lg'
+                                        height="auto"
+                                        minHeight="20px"
+                                        maxH="150px"
+                                    /></Center>
+                                <Stack mt='6' spacing='3'>
+                                    <Box className='caja' display="flex" justifyContent="center" alignItems="center" minH="40px" maxH="40px">
+                                        <Heading size='md'>{value[1].title}</Heading>
+                                    </Box>
+                                    <Box maxH="140px" minH="100px" overflow="hidden" textOverflow="ellipsis">
+                                        <Text>
+                                            {value[1].info}
+                                        </Text></Box>
+                                    <Text color='blue.600' fontSize='xl'>
+                                        Dificultad:<Badge ml='1' fontSize='0.8em' colorScheme={value[1].dificultad === "Alta" ? "red" : value[1].dificultad === 'Baja' ? "green" : "yellow"}>
+                                            {value[1].dificultad}
+                                        </Badge>
+                                        <br></br>
+                                        Tiempo: {value[1].tiempo} Horas<br></br>
+                                        Recorrido:{value[1].recorrido} Kilometros<br></br>
+                                    </Text>
+                                </Stack>
+                            </CardBody>
+                            <Divider />
+                            <CardFooter>
+                                <Button onClick={onOpen} variant='solid' colorScheme='blue'>
+                                    Ver Ruta
+                                </Button>
+                                <Modal onClose={onClose} size={'full'} isOpen={isOpen} isCentered>
+                                    <ModalOverlay />
+                                    <ModalContent>
+                                        <ModalHeader>Circular Playa de El Puerto</ModalHeader>
+                                        <ModalCloseButton marginTop={'10px'} />
+                                        <ModalBody>
+                                            <Box>hahah</Box>
+                                            <Box>hahah</Box>
+                                            <Image width={{ base: '100%', xl: '60%' }}
+                                                src={imagenesRutas.circularPuerto[0]}
+                                                alt='Green double couch with wooden legs'
+                                                borderRadius='lg'
+                                            />
+                                        </ModalBody>
+                                        <ModalFooter>
+                                            <Button onClick={onClose}>Close</Button>
+                                        </ModalFooter>
+                                    </ModalContent>
+                                </Modal>
+                            </CardFooter>
+                        </Card>
+                    )
+                })}</Flex>
         </>
     )
 }
