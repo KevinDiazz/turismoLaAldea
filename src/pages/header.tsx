@@ -4,6 +4,7 @@ import { useStyleConfig } from '@chakra-ui/react';
 import { Text } from '@chakra-ui/react'
 // import { Center, Square, Circle } from '@chakra-ui/react'
 import Senderos from '../components/senderos';
+import Playas from '../components/playas';
 import React from 'react';
 const Header: React.FC = () => {
     const tabStyles = useStyleConfig("Tabs");
@@ -21,10 +22,10 @@ const Header: React.FC = () => {
                 </TabList>
                 <TabPanels>
                     <TabPanel>
-                   <Senderos></Senderos>
+                        <Senderos></Senderos>
                     </TabPanel>
                     <TabPanel>
-                        <p>2</p>
+                        <Playas></Playas>
                     </TabPanel>
                     <TabPanel>
                         <p>3</p>

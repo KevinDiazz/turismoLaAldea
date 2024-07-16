@@ -11,6 +11,9 @@ interface CardInfo {
   circularPlaya: Ruta;
   tasarticoGuguy: Ruta;
   degolladaTasarteInagua: Ruta;
+  cruzDelSiglo: Ruta;
+  TasarteAula: Ruta;
+  elCaminoDelCartero: Ruta;
 }
 const cardInfo: CardInfo = {
   circularPlaya: {
@@ -42,6 +45,34 @@ const cardInfo: CardInfo = {
     tiempo: " 4 a 5:30",
     recorrido: "7,3",
     src: "../src/assets/circularPlayaPuerto/ruta_03_alturas.jpg",
+  },
+  cruzDelSiglo: {
+    title: "Cruz del Siglo",
+    info: "Disfruta de una vista espectacular del Valle de La Aldea y\
+     su entorno. Observa el pueblo rodeado de altas montañas, cumbres \
+     picudas y angostos barrancos. Explora una ruta de senderismo acondicionada \
+     para obtener una perspectiva única de la localidad.",
+    dificultad: "Baja",
+    tiempo: "1:15",
+    recorrido: "2,7",
+    src: "../src/assets/circularPlayaPuerto/02-foto.jpg",
+  },
+  TasarteAula: {
+    title: "Tasarte - Camino del Aula de la Naturaleza",
+    info: "Ve a la aventura en esta ruta circular de 15,8-km cerca de La Aldea De San Nicolás, Gran Canaria. \
+    Por lo general, se considera una ruta difícil. Esta ruta es excelente para el senderismo y correr",
+    dificultad: "Alta",
+    tiempo: "6:15",
+    recorrido: "15,8",
+    src: "../src/assets/circularPlayaPuerto/64871161.400x300.jpg",
+  },
+  elCaminoDelCartero: {
+    title: "El Camino del CARTERO",
+    info: "La ruta es un camino real que realizaba el cartero y la gente de la zona para comerciar entre las diferentes poblaciones.",
+    dificultad: "Alta",
+    tiempo: "5:45",
+    recorrido: "14,19",
+    src: "../src/assets/circularPlayaPuerto/44250074Master.jpg",
   },
 };
 console.log(Object.entries(cardInfo).map((value) => value[1].title));

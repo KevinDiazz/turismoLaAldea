@@ -24,10 +24,10 @@ const Senderos: React.FC = () => {
                     impresionantes, con vistas panorámicas, flora y fauna autóctona, y
                     rincones mágicos que esperan ser descubiertos.<br></br>
                     <Center marginBottom="10px">¡Ven y déjate sorprender por la magia de cada ruta!</Center></Text></Center></Box>
-            <Flex gap="4">
+            <Flex gap="4" maxW="100vw" flexWrap="wrap" justifyContent="center">
                 {Object.entries(cardInfo).map((value) => {
                     return (
-                        <Card key={value[1].title} maxW='sm' height="fit-content">
+                        <Card key={value[1].title} maxW='sm' height="fit-content" minW="sm" minH="600px">
                             <CardBody>
                                 <Center>
                                     <Image
@@ -39,10 +39,10 @@ const Senderos: React.FC = () => {
                                         maxH="150px"
                                     /></Center>
                                 <Stack mt='6' spacing='3'>
-                                    <Box className='caja' display="flex" justifyContent="center" alignItems="center" minH="40px" maxH="40px">
+                                    <Box className='caja' display="flex" justifyContent="start" alignItems="center" minH="40px" maxH="40px">
                                         <Heading size='md'>{value[1].title}</Heading>
                                     </Box>
-                                    <Box maxH="140px" minH="100px" overflow="hidden" textOverflow="ellipsis">
+                                    <Box maxH="140px" minH="150px" display="flex" alignItems="center" overflow="hidden" textOverflow="ellipsis">
                                         <Text>
                                             {value[1].info}
                                         </Text></Box>
