@@ -11,7 +11,7 @@ import {
     Flex, Spacer
 } from '@chakra-ui/react'
 import imagenesRutas from '../images'
-import cardInfo from '../cardsInfo'
+import cardInfo from '../infoWeb/cardsInfo'
 const Senderos: React.FC = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     return (
