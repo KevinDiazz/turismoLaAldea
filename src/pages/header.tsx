@@ -7,6 +7,7 @@ import Senderos from '../components/senderos';
 import Playas from '../components/playas';
 import Cultura from '../components/cultura';
 import React from 'react';
+import Gastronomia from '../components/gastronomia';
 const Header: React.FC = () => {
     const tabStyles = useStyleConfig("Tabs");
     return (
@@ -19,20 +20,20 @@ const Header: React.FC = () => {
                     <Tab>Senderismo</Tab>
                     <Tab>Playa</Tab>
                     <Tab>Cultura</Tab>
-                    <Tab>Restauración</Tab>
+                    <Tab>Gastronomía</Tab>
                 </TabList>
                 <TabPanels>
                     <TabPanel>
                         <Senderos></Senderos>
                     </TabPanel>
                     <TabPanel>
-                        <Playas></Playas>
+                        <Playas ></Playas>
                     </TabPanel>
                     <TabPanel>
                         <Cultura></Cultura>
                     </TabPanel>
                     <TabPanel>
-                        <p>4</p>
+                        <Gastronomia></Gastronomia>
                     </TabPanel>
                 </TabPanels>
             </Tabs>
