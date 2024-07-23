@@ -30,7 +30,7 @@ const Playas: React.FC = () => {
 
     // Manejar el evento de la rueda del ratón
     const handleWheelEvent = useCallback((e: React.WheelEvent) => {
-        e.preventDefault(); // Evitar el comportamiento de scroll por defecto
+        // e.preventDefault(); // Evitar el comportamiento de scroll por defecto
 
         if (e.deltaY > 0) {
             // Desplazar hacia abajo
@@ -41,7 +41,7 @@ const Playas: React.FC = () => {
             }
         } else {
             // Desplazar hacia arriba
-            if (currentSection >= 0) {
+            if (currentSection > 0) {
                 const prevSection = currentSection - 1;
                 setCurrentSection(prevSection);
                 scrollToSection(prevSection);
