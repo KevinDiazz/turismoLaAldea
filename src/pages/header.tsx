@@ -18,41 +18,54 @@ const Header: React.FC = () => {
             smooth: 'easeInOutQuart',
         });
     }, []);
-    const handleClickEvent = useCallback((): void => {
-        scrollToSection('playaTab')
-    }, []);
+    const handleClickEvent = useCallback(
+        (name: string) => (event: React.MouseEvent<HTMLButtonElement>): void => {
+            event.preventDefault(); // Si es necesario, puedes prevenir el comportamiento por defecto del botón
+
+            switch (name) {
+                case 'playa':
+                    scrollToSection('playaTab');
+                    break;
+                case 'cultura':
+                    scrollToSection('culturaTab');
+                    break;
+                default:
+                    console.log('Sección desconocida');
+            }
+        },
+        [] // Puedes agregar dependencias aquí si cambian los valores dentro de la función
+    );
 
 
-
-const tabStyles = useStyleConfig("Tabs");
-return (
-    <>
-        <Box width={{ base: '100%', sm: '60%', md: '100%', lg: '100%' }} w='100%' p={4} color='black'>
-            <Text fontSize={'4xl'}>La Aldea de San Nicolas</Text>
-        </Box>
-        <Tabs isFitted sx={tabStyles}>
-            <TabList mb='1em'>
-                <Tab>Senderismo</Tab>
-                <Tab onClick={handleClickEvent} className='playaTab'>Playa</Tab>
-                <Tab>Cultura</Tab>
-                <Tab>Gastronomía</Tab>
-            </TabList>
-            <TabPanels>
-                <TabPanel>
-                    <Senderos></Senderos>
-                </TabPanel>
-                <TabPanel>
-                    <Playas ></Playas>
-                </TabPanel>
-                <TabPanel>
-                    <Cultura></Cultura>
-                </TabPanel>
-                <TabPanel>
-                    <Gastronomia></Gastronomia>
-                </TabPanel>
-            </TabPanels>
-        </Tabs>
-    </>
-)
+    const tabStyles = useStyleConfig("Tabs");
+    return (
+        <>
+            <Box width={{ base: '100%', sm: '60%', md: '100%', lg: '100%' }} w='100%' p={4} color='black'>
+                <Text fontWeight='300' fontFamily='"Oswald", sans-serif;' fontSize={'5xl'}>La Aldea de San Nicolas</Text>
+            </Box>
+            <Tabs isFitted sx={tabStyles}>
+                <TabList mb='1em'>
+                    <Tab fontWeight='300' fontFamily='"Oswald", sans-serif;' fontSize={'2xl'}>Senderismo</Tab>
+                    <Tab fontWeight='300' fontFamily='"Oswald", sans-serif;' fontSize={'2xl'} onClick={handleClickEvent('playa')} className='playaTab'>Playa</Tab>
+                    <Tab fontWeight='300' fontFamily='"Oswald", sans-serif;' fontSize={'2xl'} onClick={handleClickEvent('cultura')} className='culturaTab'>Cultura</Tab>
+                    <Tab fontWeight='300' fontFamily='"Oswald", sans-serif;' fontSize={'2xl'}>Gastronomía</Tab>
+                </TabList>
+                <TabPanels>
+                    <TabPanel>
+                        <Senderos></Senderos>
+                    </TabPanel>
+                    <TabPanel>
+                        <Playas ></Playas>
+                    </TabPanel>
+                    <TabPanel>
+                        <Cultura></Cultura>
+                    </TabPanel>
+                    <TabPanel>
+                        <Gastronomia></Gastronomia>
+                    </TabPanel>
+                </TabPanels>
+            </Tabs>
+        </>
+    )
 }
 export default Header;

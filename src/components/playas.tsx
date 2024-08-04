@@ -26,7 +26,7 @@ const Playas: React.FC = () => {
             delay: 0,
             smooth: 'easeInOutQuart',
         });
-    }, []);
+    }, [sectionIds]);
 
     // Manejar el evento de la rueda del ratón
     const handleWheelEvent = useCallback((e: React.WheelEvent) => {
@@ -51,17 +51,18 @@ const Playas: React.FC = () => {
 
     return (
         <Box onWheel={handleWheelEvent}>
-            <Box width={{ base: '60%', sm: '100%', md: '100%', lg: '100%' }} display="flex" alignItems='center' height='100vh' id='section0' justifyContent="center">
-                <Text width={{ base: '60%', sm: '100%', md: '100%', lg: '60%' }}>Sumérgete en el paraíso de La Aldea: Playa de La Aldea, Guguy, Tasartico y Tasarte te esperan con el mejor clima del archipiélago canario y puestas de sol inolvidables. ¡Descubre nuestras playas y enamórate del atardecer!</Text>
+            <Box width={{ base: '60%', sm: '100%', md: '100%', lg: '100%' }} display="flex" marginTop='' alignItems='center' height='100vh' id='section0' justifyContent="center">
+                <Text width={{ base: '60%', sm: '100%', md: '100%', lg: '60%' }}  fontFamily='Oswald' fontWeight='200' fontSize='4xl'>Sumérgete en el paraíso de La Aldea: Playa de La Aldea, Guguy, Tasartico y Tasarte te esperan con el mejor clima del archipiélago canario y puestas de sol inolvidables. 
+                <Text marginTop='50px' align='center' fontWeight='400'>¡Descubre nuestras playas y enamórate del atardecer!</Text></Text>
             </Box>
             {Object.entries(playasInfo).map((value, index) => {
                 return (
                     <Box boxSize="xxl" height="100vh" id={`section${index + 1}`} key={value[1].title}>
-                        <Heading marginBottom="30px" marginTop="20px">{value[1].title}</Heading>
+                        <Heading  fontFamily='Oswald' marginBottom="30px" marginTop="20px">{value[1].title}</Heading>
                         <Flex gap="10" alignItems="center">
                             <Image width="100vh" height="auto" src={value[1].src}></Image>
                             <Box width="60%">
-                                <Text width={{ base: '60%', sm: '100%', md: '100%', lg: '60%', xl: "80%" }} dangerouslySetInnerHTML={{ __html: value[1].info }}></Text></Box></Flex></Box>
+                                <Text fontFamily='"Quicksand", sans-serif;' fontSize='xl' width={{ base: '60%', sm: '100%', md: '100%', lg: '60%', xl: "80%" }} dangerouslySetInnerHTML={{ __html: value[1].info }}></Text></Box></Flex></Box>
                 )
             }
             )}</Box>

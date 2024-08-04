@@ -12,18 +12,14 @@ import {
 } from '@chakra-ui/react'
 import imagenesRutas from '../images'
 import cardInfo from '../infoWeb/cardsInfo'
+import backgroundImage from "../assets/circularPlayaPuerto/senderismo-reserva-inagua-grid.avif";
 const Senderos: React.FC = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     return (
         <>
-            <Box width={{ base: '60%', sm: '100%', md: '100%', lg: '100%' }}>
-                <Center><Text width={'60%'} fontSize={'l'}>Explora la belleza natural de la Aldea de San Nicolás
-                    a través de sus encantadores senderos. Este paraíso oculto ofrece
-                    una variedad de rutas para caminantes de todos los niveles, desde
-                    paseos tranquilos hasta desafiantes aventuras. Cada sendero te lleva a través de paisajes
-                    impresionantes, con vistas panorámicas, flora y fauna autóctona, y
-                    rincones mágicos que esperan ser descubiertos.<br></br>
-                    <Center marginBottom="10px">¡Ven y déjate sorprender por la magia de cada ruta!</Center></Text></Center></Box>
+            <Box className='parallax' display='flex' justifyContent='center' backgroundImage={`url(${backgroundImage})`} >
+                <Box display='flex' justifyContent='center' height='50vh' marginTop='0px'>
+                    <Center margin="20px 0 20px 0" color='white' fontSize='4xl' fontWeight='bold' zIndex='1' position='relative' textShadow='-1px -1px 0 #000,1px -1px 0 #000, -1px 1px 0 #000,1px 1px 0 #000;'>¡Ven y déjate sorprender por la magia de cada ruta!</Center></Box></Box>
             <Flex gap="4" maxW="100vw" flexWrap="wrap" justifyContent="center">
                 {Object.entries(cardInfo).map((value) => {
                     return (
@@ -40,19 +36,19 @@ const Senderos: React.FC = () => {
                                     /></Center>
                                 <Stack mt='6' spacing='3'>
                                     <Box className='caja' display="flex" justifyContent="start" alignItems="center" minH="40px" maxH="40px">
-                                        <Heading size='md'>{value[1].title}</Heading>
+                                        <Heading fontFamily='Oswald' size='md'>{value[1].title}</Heading>
                                     </Box>
-                                    <Box maxH="140px" minH="150px" display="flex" alignItems="center" overflow="hidden" textOverflow="ellipsis">
-                                        <Text>
+                                    <Box maxH="140px" minH="150px" display="flex" alignItems="start" overflow="hidden" textOverflow='ellipsis'>
+                                        <Text fontFamily='"Quicksand", sans-serif;'>
                                             {value[1].info}
                                         </Text></Box>
-                                    <Text color='blue.600' fontSize='xl'>
-                                        Dificultad:<Badge ml='1' fontSize='0.8em' colorScheme={value[1].dificultad === "Alta" ? "red" : value[1].dificultad === 'Baja' ? "green" : "yellow"}>
+                                    <Text fontFamily='Oswald' fontWeight='200' fontSize={'2xl'} color='blue.600'>
+                                        <span style={{ fontWeight: "400", color: 'black' }}>Dificultad:</span><Badge ml='1' fontSize='0.8em' colorScheme={value[1].dificultad === "Alta" ? "red" : value[1].dificultad === 'Baja' ? "green" : "yellow"}>
                                             {value[1].dificultad}
                                         </Badge>
                                         <br></br>
-                                        Tiempo: {value[1].tiempo} Horas<br></br>
-                                        Recorrido:{value[1].recorrido} Kilometros<br></br>
+                                        <span style={{ fontWeight: "400", color: 'black' }}>Tiempo:</span> {value[1].tiempo} Horas<br></br>
+                                        <span style={{ fontWeight: "400", color: 'black' }}>Recorrido:</span>{value[1].recorrido} Kilometros<br></br>
                                     </Text>
                                 </Stack>
                             </CardBody>
