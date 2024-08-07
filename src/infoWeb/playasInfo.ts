@@ -1,12 +1,12 @@
 interface InfoPlaya {
   title: string;
   info: string;
-  src: string;
+  src: object[];
 }
 
 interface PlayaInfo {
   playaAldea: InfoPlaya;
-  playaPuerto
+  playaPuerto:InfoPlaya;
   playaGuguy: InfoPlaya;
   PlayaTasartico: InfoPlaya;
   PlayaTasarte: InfoPlaya;
@@ -26,12 +26,12 @@ const playasInfo: PlayaInfo = {
                 y comida casera.\
                 Además, visita el Centro de Interpretación de Los Caserones y el Centro de Visitantes para una experiencia completa\
                 en Playa de La Aldea.<br> ¡Ven y vive la magia de este paraíso costero!",
-    src: "../src/assets/circularPlayaPuerto/Playa-de-La-Aldea-mayo-2017-12.jpg",
+    src: [{original:"../src/assets/circularPlayaPuerto/Playa-de-La-Aldea-mayo-2017-12.jpg"},{original:"../src/assets/circularPlayaPuerto/playa-de-la-aldea-de-san-nicolas-gran-canaria-47220-xl.jpg"}],
   },
   playaPuerto: {
     title: "Playa de el Puerto",
     info: "Descubre la encantadora Playa de el Puerto, esta se encuentra escondida entre la montañas, para llegar a ella deberas hacerlo a traves de varios senderos que llevan hasta ella.<br> Esta a unos 3 kilometros de la playa de la Aldea, es una cala pequeña de arena tostada, aunque es relativamente estrecha, tiene una amplia zona de arena. ",
-    src: "../src/assets/circularPlayaPuerto/bb649b5e9b78ccc3d37b687d9b2104de_L.jpg",
+    src: [{original:"../src/assets/circularPlayaPuerto/bb649b5e9b78ccc3d37b687d9b2104de_L.jpg"},{original:"../src/assets/circularPlayaPuerto/cala-del-puerto-en-la-aldea-de-san-nicolas-gran-canaria-3-zona-norte.webp"}],
   },
   playaGuguy: {
     title: "Playa de Guguy",
@@ -48,7 +48,7 @@ const playasInfo: PlayaInfo = {
     es crucial controlar las mareas, ya que con marea alta podrías quedarte aislado. \
     Guguy es un refugio natural perfecto para quienes buscan aventura y la serenidad de un\
     entorno virgen y espectacular.",
-    src: "../src/assets/circularPlayaPuerto/Cabecera-desktop-Güi-Güi_0.jpg",
+    src: [ {original:"../src/assets/circularPlayaPuerto/Cabecera-desktop-Güi-Güi_0.jpg"}],
   },
   PlayaTasartico: {
     title: "Playa de Tasartico",
@@ -60,7 +60,7 @@ const playasInfo: PlayaInfo = {
         directo con la naturaleza. Además, la playa es perfecta para los amantes del senderismo,\
          ya que los alrededores ofrecen rutas escénicas y la posibilidad de explorar el paisaje\
           volcánico de la zona.",
-    src: "https://7mar.es/img/llocs/299/playa-de-tasartico-en-la-aldea-de-san-nicolas-gran-canaria-2-zona-con-tablas-para-tumbarse.jpg",
+    src: [{original:"https://7mar.es/img/llocs/299/playa-de-tasartico-en-la-aldea-de-san-nicolas-gran-canaria-2-zona-con-tablas-para-tumbarse.jpg"}],
   },
   PlayaTasarte: {
     title: "Playa de Tasarte",
@@ -71,7 +71,7 @@ const playasInfo: PlayaInfo = {
     Su entorno natural y aislado la hace ideal para quienes buscan tranquilidad y contacto directo\
      con la naturaleza. Además, la playa es perfecta para los amantes del senderismo, ya que los alrededores \
     ofrecen rutas escénicas y la posibilidad de explorar el paisaje volcánico de la zona.",
-    src: "../src/assets/circularPlayaPuerto/DSC04544.jpg",
+    src:[{original:"../src/assets/circularPlayaPuerto/DSC04544.jpg"},{original:"../src/assets/circularPlayaPuerto/playa-de-tasarte-en-la-aldea-de-san-nicolas-gran-canaria-4-rincon-restaurante-olivia.webp"}],
   },
 };
 

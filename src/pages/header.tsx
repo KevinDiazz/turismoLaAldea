@@ -24,7 +24,7 @@ const Header: React.FC = () => {
 
             switch (name) {
                 case 'playa':
-                    scrollToSection('playaTab');
+                    scrollToSection('section0');
                     break;
                 case 'cultura':
                     scrollToSection('culturaTab');

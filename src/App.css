@@ -18,3 +18,9 @@ body {
 .nombrePlaya{
   display: none;
 }
+.image-gallery {
+  width: 80%;
+}
+.galeriaPlaya{
+  height: 20px;
+}
