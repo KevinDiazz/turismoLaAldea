@@ -12,9 +12,10 @@ import {
 } from '@chakra-ui/react'
 import { useState, useCallback, useMemo, useEffect } from 'react';
 import { Element, scroller } from 'react-scroll';
+import informationEje from '../infoWeb/cronologicInfo';
 const Cultura: React.FC = () => {
     const [currentSection, setCurrentSection] = useState<number>(0);
-    const sectionIds: string[] = useMemo(() => ['section10','section11', 'section12', 'section13', 'section14', 'section15'], []); // Define los IDs de tus secciones
+    const sectionIds: string[] = useMemo(() => ['section10', 'section11', 'section12', 'section13', 'section14', 'section15'], []); // Define los IDs de tus secciones
 
     // Función para desplazarse a una sección específica
     const scrollToSection = useCallback((index: number) => {
@@ -46,28 +47,66 @@ const Cultura: React.FC = () => {
         }
     }, [currentSection, scrollToSection, sectionIds]);
 
+    const addEvent = ()=>{
+        const circles = document.getElementsByClassName('circle') as HTMLCollectionOf<HTMLDivElement>
+        for (let i = 0; i < circles.length; i++) {
+            console.log(circles[i].dataset.type)
+            const dateOfEvent:keyof typeof informationEje=circles[i].dataset.type as keyof typeof informationEje
+            circles[i].addEventListener('click',()=>showInfoEje(dateOfEvent))
+        }
+    }
+
+    const showInfoEje=(fecha: keyof typeof informationEje)=>{
+const divshowInfoEje= document.getElementsByClassName('ejeIinfoView') as HTMLCollectionOf<HTMLDivElement>
+ divshowInfoEje[0].innerText=informationEje[fecha].description
+    }
+useEffect(() => {
+  addEvent()
+}, [])
+
     return (
         <Box display='flex' flexDirection='column' justifyContent='center' justifyItems='center' onWheel={handleWheelEvent}>
-            <Box height='100vh' id='section10'>asfadgfga</Box>
+            <Box height='100vh' display="flex" gap="10px" justifyContent='center' id='section10'>
+            <Box position='absolute' width='60%' marginTop='50px'>
+                <Heading as='h1' size='lg'>Explora la Historia de la Aldea de San Nicolás</Heading>
+                <p>Descubre los momentos clave que han dado forma a la Aldea de San Nicolás con nuestro Eje Cronológico Interactivo. Desde sus orígenes hasta la actualidad, recorre los eventos más importantes que marcaron su desarrollo. Haz clic en cada etapa y viaja por el tiempo para conocer más sobre nuestra historia.</p></Box>
+                <Box display='flex' justifyContent='center' alignItems='center'>
+                <Box className='circle' data-type='1352' marginBottom='33px' display='flex' justifyContent='center' alignItems='center' height='90px' width="90px" borderRadius="50%" border='2px solid red' >1352</Box>
+                <Box display='flex' height='80px' justifyContent='center' alignItems='center' >
+                    <Box className='line' height='3px' width="50px" bg='black' >
+                    </Box>
+                </Box>
+                <Box className='circle'  data-type='1482' marginTop='33px' display='flex' justifyContent='center' alignItems='center' height='90px' width="90px" borderRadius="50%" border='2px solid red'> 1482</Box>
+                <Box display='flex' height='80px' justifyContent='center' alignItems='center' >
+                    <Box className='line' height='3px' width="50px" bg='black' >
+                    </Box>
+                </Box>
+                <Box className='circle'  data-type='xvi' marginBottom='33px' display='flex' justifyContent='center' alignItems='center' height='90px' width="90px" borderRadius="50%" border='2px solid red'>Siglo XVI</Box>
+                <Box display='flex' height='80px' justifyContent='center' alignItems='center' >
+                    <Box className='line' height='3px' width="50px" bg='black' >
+                    </Box>
+                </Box>
+                <Box className='circle'  data-type='xvii' marginTop='33px' display='flex' justifyContent='center' alignItems='center' height='90px' width="90px" borderRadius="50%" border='2px solid red'> S.XVII-XVIII</Box>
+                <Box display='flex' height='80px' justifyContent='center' alignItems='center' >
+                    <Box className='line' height='3px' width="50px" bg='black' >
+                    </Box>
+                </Box>
+                <Box className='circle'  data-type='1868' marginBottom='33px' display='flex' justifyContent='center' alignItems='center' height='90px' width="90px" borderRadius="50%" border='2px solid red'>1868-1921</Box>
+                <Box display='flex' height='80px' justifyContent='center' alignItems='center' >
+                    <Box className='line' height='3px' width="50px" bg='black' >
+                    </Box>
+                </Box>
+                <Box className='circle'  data-type='1939' marginTop='33px' display='flex' justifyContent='center' alignItems='center' height='90px' width="90px" borderRadius="50%" border='2px solid red'>1939-1957</Box>
+                <Box display='flex' height='80px' justifyContent='center' alignItems='center' >
+                    <Box className='line' height='3px' width="50px" bg='black' >
+                    </Box>
+                </Box>
+                <Box className='circle'  data-type='1960' marginBottom='33px' display='flex' justifyContent='center' alignItems='center' height='90px' width="90px" borderRadius="50%" border='2px solid red'>1960-1970</Box>
+                <Box className='ejeIinfoView' position='absolute' width='60%' marginTop='50vh'>Se funda una misión mallorquina en la zona, donde se erige una ermita en honor a San Nicolás de Tolentino. Este evento marcaría el inicio de la denominación del lugar como La Aldea de San Nicolás.</Box>
+            </Box></Box>
             <Box height='100vh' id='section11'>
                 <Heading>Historia y Patrimonio</Heading>
-                <Text >La Aldea de San Nicolás, conocida históricamente como Artejévez, ha sido un lugar de gran importancia desde la época prehispánica, habitado densamente por los antiguos canarios. Los primeros poblados se establecieron cerca de los manantiales del barranco principal de La Aldea, siendo este el asentamiento más relevante del oeste de Gran Canaria.<br></br>
-
-                    1352: Se funda una misión mallorquina en la zona, donde se erige una ermita en honor a San Nicolás de Tolentino. Este evento marcaría el inicio de la denominación del lugar como La Aldea de San Nicolás.<br></br>
-
-                    Finales del siglo XV: Durante la conquista de Gran Canaria, se produjo la sangrienta batalla de Ajódar (Tasartico), en la que los canarios infligieron una derrota significativa a las fuerzas ocupantes.<br></br>
-
-                    Siglo XVI: El valle de La Aldea se vincula a la familia de Pedro Fernández, relacionada con el capitán designado como Adelantado de Canarias por los Reyes Católicos. Los derechos sobre estas tierras pasaron al noble Tomás Grimón y posteriormente a la Casa Nava-Grimón, lo que originó disputas con los aldeanos por siglos.<br></br>
-
-                    Siglo XVII-XVIII: Surgen tensiones entre los colonos y los propietarios de la familia Grimón. En 1724, un levantamiento contra los arrendatarios de la Casa Nava y Grimón resultó en una sentencia de la Real Audiencia de Canarias a favor de los marqueses de Villanueva del Prado en 1817, concluyendo esta fase del conocido Pleito de La Aldea.<br></br>
-
-                    1868-1921: La Revolución de 1868 reactivó el Pleito de La Aldea. El asesinato del Secretario del Ayuntamiento en 1875 evidenció la tensión social. En 1921, la hacienda pasó a la familia Pérez Galdós, lo que llevó a una intervención gubernamental tras la visita del Ministro de Gracia y Justicia, Galo Ponte, en 1927. El Gobierno expropió las tierras, vendiéndolas simbólicamente a los vecinos y resolviendo así tres siglos de disputas. Esto llevó a la creación de la Comunidad de Regantes de La Aldea de San Nicolás.<br></br>
-
-                    1939-1957: La apertura de la carretera Agaete-La Aldea en 1939 impulsó el crecimiento económico y demográfico. La producción agrícola, especialmente de tomates, se exportaba a Europa, lo que se reflejó en la arquitectura local y el cambio de nombre del municipio a San Nicolás de Tolentino en 1957.<br></br>
-
-                    Décadas de 1960-1970: La fundación de las cooperativas Coagrisan y Copaisan, dedicadas a la exportación de tomates, marcó un hito económico. Sin embargo, el final de la dictadura franquista y la llegada de la democracia provocaron una migración hacia el sector turístico y de construcción en el sur de la isla, dejando barrios como Pino Gordo y Las Casillas despoblados.<br></br>
-
-                    Siglo XXI: La Aldea ha fortalecido su identidad histórica y ganado el Premio Canarias 2003 en cultura popular. A pesar de contar con mejores servicios públicos e infraestructura agraria, la dependencia del monocultivo de tomate plantea desafíos económicos. En 2006, el municipio recuperó su nombre tradicional, La Aldea de San Nicolás, reafirmando su rica historia y cultura.<br></br></Text></Box>
+            </Box>
             <Box display='flex' flexDirection='column' justifyContent='center' height='100vh' id='section12'>
                 <Heading>Fiestas y tradiciones</Heading>
                 <Text>La Aldea de San Nicolás es conocida por sus vibrantes fiestas y tradiciones que mantienen viva la cultura local:

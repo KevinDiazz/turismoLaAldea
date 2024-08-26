@@ -48,7 +48,7 @@ const playasInfo: PlayaInfo = {
     es crucial controlar las mareas, ya que con marea alta podrías quedarte aislado. \
     Guguy es un refugio natural perfecto para quienes buscan aventura y la serenidad de un\
     entorno virgen y espectacular.",
-    src: [ {original:"../src/assets/circularPlayaPuerto/Cabecera-desktop-Güi-Güi_0.jpg"}],
+    src: [ {original:"../src/assets/circularPlayaPuerto/Cabecera-desktop-Güi-Güi_0.jpg"},{original:'../src/assets/circularPlayaPuerto/f.elconfidencial.com_original_cc1_1d1_553_cc11d15530b8329a066849310e2a10dd.jpg'}],
   },
   PlayaTasartico: {
     title: "Playa de Tasartico",
@@ -60,7 +60,7 @@ const playasInfo: PlayaInfo = {
         directo con la naturaleza. Además, la playa es perfecta para los amantes del senderismo,\
          ya que los alrededores ofrecen rutas escénicas y la posibilidad de explorar el paisaje\
           volcánico de la zona.",
-    src: [{original:"https://7mar.es/img/llocs/299/playa-de-tasartico-en-la-aldea-de-san-nicolas-gran-canaria-2-zona-con-tablas-para-tumbarse.jpg"}],
+    src: [{original:"https://7mar.es/img/llocs/299/playa-de-tasartico-en-la-aldea-de-san-nicolas-gran-canaria-2-zona-con-tablas-para-tumbarse.jpg"},{original:'../src/assets/circularPlayaPuerto/playa-de-tasartico.webp'}],
   },
   PlayaTasarte: {
     title: "Playa de Tasarte",
