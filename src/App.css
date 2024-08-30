@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Quicksand:wght@300..700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
 body {
   scroll-behavior: smooth;
 }
@@ -24,3 +25,30 @@ body {
 .galeriaPlaya{
   height: 20px;
 }
+.circle{
+  cursor: pointer;
+  font-family:'Oswald'
+}
+.circleParty,.imgFiestas{
+  float: left;
+  width:350px;
+  height: 350px;
+  border-radius: 50%;
+  margin: 0;
+  padding: 0;
+}
+.circleCharco{
+  float: left;
+  width:350px;
+  height: 350px;
+  border-radius: 50%;
+  margin: 0;
+  padding: 0;
+}
+/* .imgRomeria{
+  width: 700px;
+} */
+ .titleFiesta{
+  font-size: 20px;
+
+ }
