@@ -1,5 +1,14 @@
 import { Box } from '@chakra-ui/react'
-import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
+import { Button,Image } from '@chakra-ui/react'
+import {
+    Drawer,
+    DrawerBody,
+    DrawerFooter,
+    DrawerHeader,
+    DrawerOverlay,
+    DrawerContent,
+    DrawerCloseButton, useDisclosure
+} from '@chakra-ui/react'
 import { useStyleConfig } from '@chakra-ui/react';
 import { Text } from '@chakra-ui/react'
 // import { Center, Square, Circle } from '@chakra-ui/react'
@@ -7,10 +16,12 @@ import Senderos from '../components/senderos';
 import Playas from '../components/playas';
 import Cultura from '../components/cultura';
 import React, { MouseEventHandler } from 'react';
-import { useState, useEffect, useCallback, useMemo } from 'react';
+import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import Gastronomia from '../components/gastronomia';
 import { Element, scroller } from 'react-scroll';
 const Header: React.FC = () => {
+    const { isOpen, onOpen, onClose } = useDisclosure()
+    const btnRef = React.useRef()
     const scrollToSection = useCallback((nameDiv: string) => {
         scroller.scrollTo(nameDiv, {
             duration: 500,
@@ -36,35 +47,46 @@ const Header: React.FC = () => {
         [] // Puedes agregar dependencias aquí si cambian los valores dentro de la función
     );
 
-
-    const tabStyles = useStyleConfig("Tabs");
     return (
         <>
-            <Box width={{ base: '100%', sm: '60%', md: '100%', lg: '100%' }} w='100%' p={4} color='black'>
-                <Text fontWeight='300' fontFamily='"Oswald", sans-serif;' fontSize={'5xl'}>La Aldea de San Nicolas</Text>
+            <Box bg='#2222' display='flex' width={{ base: '100%', sm: '60%', md: '100%', lg: '100%' }} w='100%' p={4} color='black'>
+                <Button width='90px' colorScheme='teal' bg='white' onClick={onOpen}>
+                    <Image width='880%'  height='100%' src='..\src\assets\circularPlayaPuerto\barra-de-menus.png'></Image>
+                </Button>
+                <Drawer
+                    isOpen={isOpen}
+                    placement='left'
+                    onClose={onClose}
+                >
+                    <DrawerOverlay />
+                    <DrawerContent>
+                        <DrawerCloseButton />
+                        <DrawerHeader>
+                            <ul style={{ listStyle: 'none' }}>
+                                <li>Inicio</li>
+                                <li>Cultura</li>
+                                <li>Senderismo</li>
+                                <li>Gastronomia</li>
+                                <li>Playas</li>
+                            </ul>
+                        </DrawerHeader>
+
+                        <DrawerBody>
+                        </DrawerBody>
+
+                        <DrawerFooter>
+                        </DrawerFooter>
+                    </DrawerContent>
+                </Drawer>
+                <Text marginLeft='10px' fontWeight='300' fontFamily='"Oswald", sans-serif;' fontSize={'2xl'}>La Aldea de San Nicolas</Text>
+                <Box width='60%' display='flex' justifyContent='center' alignItems='center'>
+                <ul style={{ listStyle: 'none',display:'flex',gap:'15px',justifyContent:'space-evenly',width:'80%'}}>
+                                <li>Cultura</li>
+                                <li>Senderismo</li>
+                                <li>Gastronomia</li>
+                                <li>Playas</li>
+                            </ul></Box>
             </Box>
-            <Tabs isFitted sx={tabStyles}>
-                <TabList mb='1em'>
-                    <Tab fontWeight='300' fontFamily='"Oswald", sans-serif;' fontSize={'2xl'}>Senderismo</Tab>
-                    <Tab fontWeight='300' fontFamily='"Oswald", sans-serif;' fontSize={'2xl'} onClick={handleClickEvent('playa')} className='playaTab'>Playa</Tab>
-                    <Tab fontWeight='300' fontFamily='"Oswald", sans-serif;' fontSize={'2xl'} onClick={handleClickEvent('cultura')} className='culturaTab'>Cultura</Tab>
-                    <Tab fontWeight='300' fontFamily='"Oswald", sans-serif;' fontSize={'2xl'}>Gastronomía</Tab>
-                </TabList>
-                <TabPanels>
-                    <TabPanel>
-                        <Senderos></Senderos>
-                    </TabPanel>
-                    <TabPanel>
-                        <Playas ></Playas>
-                    </TabPanel>
-                    <TabPanel>
-                        <Cultura></Cultura>
-                    </TabPanel>
-                    <TabPanel>
-                        <Gastronomia></Gastronomia>
-                    </TabPanel>
-                </TabPanels>
-            </Tabs>
         </>
     )
 }

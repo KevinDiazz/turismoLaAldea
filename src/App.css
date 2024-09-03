@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Quicksand:wght@300..700&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mate+SC&family=Playwrite+CU:wght@100..400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Mate+SC&family=Playwrite+CU:wght@100..400&display=swap');
 body {
   scroll-behavior: smooth;
 }
@@ -37,13 +40,9 @@ body {
   margin: 0;
   padding: 0;
 }
-.circleCharco{
-  float: left;
-  width:350px;
-  height: 350px;
-  border-radius: 50%;
-  margin: 0;
-  padding: 0;
+.circleParty2:hover{
+  box-shadow: 0px -1px 15px 8px rgb(158, 158, 158);
+  border-radius:50%;
 }
 /* .imgRomeria{
   width: 700px;
