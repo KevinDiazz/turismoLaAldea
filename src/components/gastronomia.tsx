@@ -24,7 +24,7 @@ const Gastronomia: React.FC = () => {
         infoComida[0].innerText = comidasTipicas[indexComida as keyof typeof comidasTipicas].info
         imgReceta[0].src = comidasTipicas[indexComida as keyof typeof comidasTipicas].src
     }
-    const [indexComida, setIndexComida] = useState(1)
+    const [indexComida, setIndexComida] = useState(2)
     return (
         <>
             <Box display='flex' justifyContent='center' flexDirection='column' alignItems='center'>

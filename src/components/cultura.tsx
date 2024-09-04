@@ -21,7 +21,7 @@ const Cultura: React.FC = () => {
     const titleRef1 = useRef(null);
     const titleRef2 = useRef(null);
     const titleRef3 = useRef(null); const MotionBox = motion(Box);
-    const [currentSection, setCurrentSection] = useState<number>(0);
+    const [currentSection, setCurrentSection] = useState<number>(-1);
     const sectionIds: string[] = useMemo(() => ['section10', 'section12'], []); // Define los IDs de tus secciones
     const { isOpen, onOpen, onClose } = useDisclosure()
     const [modalInfo, setModalInfo] = useState({ titulo: "", src: "", info: "" })
@@ -49,6 +49,10 @@ const Cultura: React.FC = () => {
             // Desplazar hacia arriba
             if (currentSection > 0) {
                 const prevSection = currentSection - 1;
+                setCurrentSection(prevSection);
+                scrollToSection(prevSection);
+            }else{
+                const prevSection = - 1;
                 setCurrentSection(prevSection);
                 scrollToSection(prevSection);
             }

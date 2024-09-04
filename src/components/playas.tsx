@@ -17,7 +17,7 @@ import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 
 const Playas: React.FC = () => {
-    const [currentSection, setCurrentSection] = useState<number>(0);
+    const [currentSection, setCurrentSection] = useState<number>(-1);
     const sectionIds: string[] = useMemo(() => ['section0', 'section1', 'section2', 'section3', 'section4', 'section5'], []); // Define los IDs de tus secciones
     const hoverEffect = () => {
         const nameOfBeach = document.getElementsByClassName('nombrePlaya') as HTMLCollectionOf<HTMLDivElement>;
@@ -79,6 +79,10 @@ const Playas: React.FC = () => {
             // Desplazar hacia arriba
             if (currentSection > 0) {
                 const prevSection = currentSection - 1;
+                setCurrentSection(prevSection);
+                scrollToSection(prevSection);
+            }else{
+                const prevSection = - 1;
                 setCurrentSection(prevSection);
                 scrollToSection(prevSection);
             }
