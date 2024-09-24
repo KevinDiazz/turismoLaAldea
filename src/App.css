@@ -7,15 +7,6 @@
 body {
   scroll-behavior: smooth;
 }
-.parallax {
-  /* Esto crea el efecto de parallax */
-  background-image: url("../assets/background.jpg");
-  min-height: 80vh;
-  background-attachment: fixed; /* Clave para el efecto parallax */
-  background-position: start;
-  background-repeat: no-repeat;
-  background-size:100vw;
-}
 .imgforma{
   clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 50% 100%, 0% 75%);
 }
@@ -51,4 +42,8 @@ body {
  .titleFiesta{
   font-size: 20px;
 
+ }
+
+ li{
+  margin-top: 10px;
  }

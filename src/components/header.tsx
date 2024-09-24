@@ -48,7 +48,7 @@ const Header: React.FC = () => {
 
     return (
         <>
-            <Box bg='#cddfb7' display='flex' alignItems='center' width={{ base: '100%', sm: '60%', md: '100%', lg: '100%' }} w='100%' height='90px' p={4} color='black'>
+            <Box bg='#cddfb7' display='flex' alignItems='center' width={{ base: '100%', sm: '60%', md: '100%', lg: '100%' }}  height='90px' p={4} color='black'>
                 <Button display='none' width='90px' colorScheme='teal' bg='white' onClick={onOpen}>
                     <Image width='880%' height='100%' src='..\src\assets\circularPlayaPuerto\barra-de-menus.png'></Image>
                 </Button>
@@ -77,9 +77,9 @@ const Header: React.FC = () => {
                         </DrawerFooter>
                     </DrawerContent>
                 </Drawer>
-                <Text marginLeft='10px' fontWeight='300' fontFamily='Oswald' fontSize={'3xl'}><Link to={'/'}>La Aldea de San Nicolás</Link></Text>
+                <Text marginLeft='10px' fontWeight='300' fontFamily='Oswald' fontSize={{base:'l',sm:'3xl'}}><Link to={'/'}>La Aldea de San Nicolás</Link></Text>
                 <Box width='60%' display='flex' justifyContent='center' alignItems='center'>
-                    <ul style={{ listStyle: 'none', display: 'flex', gap: '15px', justifyContent: 'space-evenly', width: '80%', fontFamily: 'Oswald', fontSize: '13pt' }}>
+                    <ul style={{ listStyle: 'none', display: 'flex', gap: '15px', justifyContent: 'space-evenly', width: '100%', fontFamily: 'Oswald', fontSize: '8pt' }}>
                         <li><Link to={'/cultura'}> Cultura</Link></li>
                         <li><Link to={'/senderos'}>Senderismo</Link></li>
                         <li><Link to={'/gastronomia'}>Gastronomia</Link></li>
